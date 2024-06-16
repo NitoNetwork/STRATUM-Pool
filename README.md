@@ -54,4 +54,4 @@ sudo ufw status
 ```bash
 ./src/nitopool -B
 ```
-[ For daemon add -D ]
+[ -D For daemon ]
