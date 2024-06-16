@@ -1,4 +1,7 @@
 # Nito Stratum Pool
+A Nito optimized stratum pool.
+
+# Apt-get
 ```
 sudo apt-get update
 sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip build-essential libssl-dev git yasm libzmq3-dev pkgconf git nano
@@ -20,10 +23,10 @@ chmod +x autogen.sh
 make
 ```
 # Config 
-[ Edit serverurl ip ]
 ```
 nano nitopool.conf
 ```
+[ Edit ip: serverurl ]
 
 # Firewall
 ```
@@ -33,7 +36,7 @@ sudo ufw status numbered
 ```
 
 # Run
-[ For daemon add -D ]
 ```
 ./src/nitopool -B
 ```
+[ For daemon add -D ]
