@@ -3,7 +3,7 @@ A Nito optimized stratum pool.
 
 # Nito.conf
 ```bash
-maxconnections=100
+maxconnections=300
 listen=1
 server=1
 txindex=1
