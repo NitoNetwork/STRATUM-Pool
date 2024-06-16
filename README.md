@@ -6,20 +6,21 @@ sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip
 # Git clone
 ```
 git clone https://github.com/nitocoin/STRATUM-Pool.git
-```
-```
+
 cd STRATUM-Pool
 ```
-# Build
+# Build for Linux
 ```
 chmod +x autogen.sh
+
 ./autogen.sh
-```
-```
+
 ./configure
+
 make
 ```
-# Config ( Edit serverurl ip ) 
+# Config 
+[ Edit serverurl ip ]
 ```
 nano nitopool.conf
 ```
@@ -32,11 +33,7 @@ sudo ufw status numbered
 ```
 
 # Run
+[ For daemon add -D ]
 ```
 ./src/nitopool -B
-```
-
-# Or start as daemon:
-```
-./src/nitopool -B -D
 ```
