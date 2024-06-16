@@ -47,7 +47,7 @@ sudo ufw allow 3333/tcp
 
 sudo ufw reload
 
-sudo ufw status numbered
+sudo ufw status
 ```
 
 # Run
