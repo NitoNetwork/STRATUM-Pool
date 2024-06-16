@@ -10,6 +10,7 @@ git clone https://github.com/nitocoin/STRATUM-Pool.git
 ```
 cd STRATUM-Pool
 ```
+# Build
 ```
 chmod +x autogen.sh
 ./autogen.sh
@@ -18,6 +19,7 @@ chmod +x autogen.sh
 ./configure
 make
 ```
+# Config ( Edit serverurl ip ) 
 ```
 nano nitopool.conf
 ```
