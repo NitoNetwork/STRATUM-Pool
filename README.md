@@ -1,7 +1,7 @@
 # Nito Stratum Pool
 A Nito optimized stratum pool.
 
-# nito.conf
+# Nito.conf
 ```bash
 maxconnections=20
 listen=1
@@ -16,6 +16,7 @@ rpcport=12250
 # Apt-get
 ```bash
 sudo apt-get update
+
 sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip build-essential libssl-dev git yasm libzmq3-dev pkgconf git nano
 ```
 # Git clone
@@ -43,7 +44,9 @@ nano nitopool.conf
 # Firewall
 ```bash
 sudo ufw allow 3333/tcp
+
 sudo ufw reload
+
 sudo ufw status numbered
 ```
 
