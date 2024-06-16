@@ -17,7 +17,7 @@ rpcport=12250
 ```bash
 sudo apt-get update
 
-sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip build-essential libssl-dev git yasm libzmq3-dev pkgconf git nano
+sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip build-essential libssl-dev git yasm libzmq3-dev pkgconf git tmux nano
 ```
 # Git clone
 ```bash
@@ -55,3 +55,5 @@ sudo ufw status
 ./src/nitopool -B
 ```
 [ Plus -D = daemon ]
+
+[ Tmux ] tmux new -s nitopool / tmux a -t nitopool
