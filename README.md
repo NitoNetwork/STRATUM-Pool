@@ -13,19 +13,19 @@ rpcport=12250
 ```
 
 
-Apt-get
+Apt-Get
 ```bash
 sudo apt-get update
 
 sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip build-essential libssl-dev git yasm libzmq3-dev pkgconf git tmux nano
 ```
-Git clone
+Git Clone
 ```bash
 git clone https://github.com/nitocoin/STRATUM-Pool.git
 
 cd STRATUM-Pool
 ```
-Build for Linux
+Build For Linux
 ```bash
 chmod +x autogen.sh
 
@@ -35,7 +35,7 @@ chmod +x autogen.sh
 
 make
 ```
-Stratum Pool Config [ Edit ip: serverurl ]
+Stratum Pool Config [ Edit IP: serverurl ]
 ```bash
 nano nitopool.conf
 ```
@@ -49,7 +49,7 @@ sudo ufw reload
 sudo ufw status
 ```
 
-Run [ Add -D for daemon ]
+Run [ Add -D For Daemon ]
 ```bash
 ./src/nitopool -B
 ```
