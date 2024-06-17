@@ -1,7 +1,7 @@
-# Nito Stratum Pool
-A Nito optimized stratum pool.
+# A Nito optimized stratum pool.
 
-# Nito.conf
+
+nito.conf [ Nito core / Nitod ]
 ```bash
 maxconnections=300
 listen=1
@@ -13,19 +13,19 @@ rpcport=12250
 ```
 
 
-# Apt-get
+Apt-get
 ```bash
 sudo apt-get update
 
 sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip build-essential libssl-dev git yasm libzmq3-dev pkgconf git tmux nano
 ```
-# Git clone
+Git clone
 ```bash
 git clone https://github.com/nitocoin/STRATUM-Pool.git
 
 cd STRATUM-Pool
 ```
-# Build for Linux
+Build for Linux
 ```bash
 chmod +x autogen.sh
 
@@ -35,13 +35,12 @@ chmod +x autogen.sh
 
 make
 ```
-# Stratum Pool Config 
+Stratum Pool Config [ Edit ip: serverurl ]
 ```bash
 nano nitopool.conf
 ```
-[ Edit ip: serverurl ]
 
-# Firewall
+Firewall
 ```bash
 sudo ufw allow 3333/tcp
 
@@ -50,12 +49,10 @@ sudo ufw reload
 sudo ufw status
 ```
 
-# Run
+Run [ Add -D for daemon ]
 ```bash
 ./src/nitopool -B
 ```
-[ Plus -D = daemon ]
-
 
 [ Tmux Commands ]
 * tmux new -s nitopool
