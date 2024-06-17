@@ -35,7 +35,7 @@ chmod +x autogen.sh
 
 make
 ```
-Stratum Pool Config [ Edit IP: serverurl ]
+Stratum Pool Config [ Change IP: serverurl ]
 ```bash
 nano nitopool.conf
 ```
