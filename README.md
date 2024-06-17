@@ -17,7 +17,7 @@ Apt-Get
 ```bash
 sudo apt-get update
 
-sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip build-essential libssl-dev git yasm libzmq3-dev pkgconf git tmux nano
+sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip build-essential libssl-dev git yasm libzmq3-dev libpq-dev libgsl-dev pkgconf git tmux nano
 ```
 Git Clone
 ```bash
