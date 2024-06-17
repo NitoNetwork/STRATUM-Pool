@@ -58,7 +58,9 @@ sudo ufw status
 
 
 [ Tmux Commands ]
-tmux new -s nitopool
-CTRL+B > D
-tmux a -t nitopool
+* tmux new -s nitopool
+
+* CTRL+B > D
+
+* tmux a -t nitopool
 
