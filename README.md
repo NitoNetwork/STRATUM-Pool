@@ -1,7 +1,7 @@
 # A Nito optimized stratum pool.
 
 
-nito.conf [ Nito core / Nitod ]
+nito.conf [ Nito QT / Nitod ]
 ```bash
 maxconnections=300
 listen=1
