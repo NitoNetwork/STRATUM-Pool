@@ -56,4 +56,9 @@ sudo ufw status
 ```
 [ Plus -D = daemon ]
 
-[ Tmux: tmux new -s nitopool // tmux a -t nitopool ]
+# Tmux Commands
+```bash
+tmux new -s nitopool
+CTRL+B > D
+tmux a -t nitopool
+```
