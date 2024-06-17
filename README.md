@@ -1,4 +1,4 @@
-# A Nito optimized stratum pool.
+# Nito optimized stratum pool.
 
 
 nito.conf [ Nito QT / Nitod ]
