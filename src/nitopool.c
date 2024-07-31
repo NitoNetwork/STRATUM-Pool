@@ -1741,14 +1741,14 @@ int main(int argc, char **argv)
 	}
 	for (i = 0; i < ckp.nitods; i++) {
 		if (!ckp.nitodurl[i])
-			ckp.nitodurl[i] = strdup("localhost:8332");
+			ckp.nitodurl[i] = strdup("localhost:12250");
 		if (!ckp.nitodauth[i])
 			ckp.nitodauth[i] = strdup("user");
 		if (!ckp.nitodpass[i])
 			ckp.nitodpass[i] = strdup("pass");
 	}
 
-	ckp.donaddress = "bc1q28kkr5hk4gnqe3evma6runjrd2pvqyp8fpwfzu";
+	ckp.donaddress = "nito1qq2jldejc8ms0gdvcm653j5q5tmhhyjg2xtpavn";
 
 	/* Donations on testnet are meaningless but required for complete
 	 * testing. Testnet and regtest addresses */
