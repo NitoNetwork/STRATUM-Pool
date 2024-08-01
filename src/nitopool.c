@@ -1741,7 +1741,7 @@ int main(int argc, char **argv)
 	}
 	for (i = 0; i < ckp.nitods; i++) {
 		if (!ckp.nitodurl[i])
-			ckp.nitodurl[i] = strdup("localhost:12250");
+			ckp.nitodurl[i] = strdup("localhost:8332");
 		if (!ckp.nitodauth[i])
 			ckp.nitodauth[i] = strdup("user");
 		if (!ckp.nitodpass[i])
