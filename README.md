@@ -9,7 +9,7 @@ server=1
 txindex=1
 rpcuser=user
 rpcpassword=pass
-rpcport=12250
+rpcport=8825
 ```
 
 
