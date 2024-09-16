@@ -54,7 +54,6 @@ Reboot auto:
 sudo nano /usr/local/bin/start_nitopool.sh
 2:
 #!/bin/bash
-# Créer ou attacher à la session tmux "nitopool" et exécuter la commande dans cette session
 tmux new-session -d -s nitopool
 tmux send-keys -t nitopool 'cd /root/STRATUM-Pool' C-m
 tmux send-keys -t nitopool './src/nitopool -B' C-m
