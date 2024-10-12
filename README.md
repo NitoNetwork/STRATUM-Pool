@@ -10,6 +10,7 @@ txindex=1
 rpcuser=user
 rpcpassword=pass
 rpcport=8825
+zmqpubhashblock=tcp://127.0.0.1:28825
 ```
 
 
