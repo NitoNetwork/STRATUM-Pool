@@ -1741,7 +1741,7 @@ int main(int argc, char **argv)
 	}
 	for (i = 0; i < ckp.nitods; i++) {
 		if (!ckp.nitodurl[i])
-			ckp.nitodurl[i] = strdup("localhost:8332");
+			ckp.nitodurl[i] = strdup("localhost:8825");
 		if (!ckp.nitodauth[i])
 			ckp.nitodauth[i] = strdup("user");
 		if (!ckp.nitodpass[i])
@@ -1758,7 +1758,7 @@ int main(int argc, char **argv)
 	if (!ckp.nitoaddress && !ckp.nitosolo && !ckp.proxy)
 		quit(0, "Non solo mining must have a nitoaddress in config, aborting!");
 	if (!ckp.blockpoll)
-		ckp.blockpoll = 100;
+		ckp.blockpoll = 50;
 	if (!ckp.nonce1length)
 		ckp.nonce1length = 4;
 	else if (ckp.nonce1length < 2 || ckp.nonce1length > 8)
@@ -1770,7 +1770,7 @@ int main(int argc, char **argv)
 	} else if (ckp.nonce2length < 2 || ckp.nonce2length > 8)
 		quit(0, "Invalid nonce2length %d specified, must be 2~8", ckp.nonce2length);
 	if (!ckp.update_interval)
-		ckp.update_interval = 30;
+		ckp.update_interval = 15;
 	if (!ckp.mindiff)
 		ckp.mindiff = 1;
 	if (!ckp.startdiff)
