@@ -21,9 +21,9 @@ sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip
 ```
 Git Clone
 ```bash
-git clone https://github.com/NitoNetwork/STRATUM-Pool.git
+git clone https://github.com/NitoNetwork/STRATUM-Pool.git stratum
 
-cd STRATUM-Pool
+cd stratum
 ```
 Build For Linux
 ```bash
