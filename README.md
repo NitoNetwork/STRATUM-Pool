@@ -16,15 +16,11 @@ zmqpubhashblock=tcp://127.0.0.1:28825
 
 Apt-Get
 ```bash
-sudo apt-get update
-
-sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip build-essential libssl-dev git yasm libzmq3-dev libpq-dev libgsl-dev pkgconf git tmux nano
+sudo apt-get update && sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip build-essential libssl-dev git yasm libzmq3-dev libpq-dev libgsl-dev pkgconf git tmux nano
 ```
 Git Clone
 ```bash
-git clone https://github.com/NitoNetwork/STRATUM-Pool.git stratum
-
-cd stratum
+git clone https://github.com/NitoNetwork/STRATUM-Pool.git stratum && cd stratum
 ```
 Build For Linux
 ```bash
