@@ -24,13 +24,7 @@ git clone https://github.com/NitoNetwork/STRATUM-Pool.git stratum && cd stratum
 ```
 Build For Linux
 ```bash
-chmod +x autogen.sh
-
-./autogen.sh
-
-./configure
-
-make
+chmod +x autogen.sh && ./autogen.sh && ./configure && make
 ```
 Stratum Pool Config [ Change IP: serverurl ]
 ```bash
@@ -39,11 +33,7 @@ nano nitopool.conf
 
 Firewall
 ```bash
-sudo ufw allow 3333/tcp
-
-sudo ufw reload
-
-sudo ufw status
+sudo ufw allow 3333/tcp && sudo ufw reload && sudo ufw status
 ```
 
 Run [ Add -D For Daemon ]
