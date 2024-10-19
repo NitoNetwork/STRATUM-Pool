@@ -36,7 +36,7 @@ nano nitopool.conf
 sudo ufw allow 3333/tcp && sudo ufw reload && sudo ufw status
 ```
 
-7. Run [ Add -D For Daemon ]
+7. Run
 ```bash
 ./src/nitopool -B
 ```
