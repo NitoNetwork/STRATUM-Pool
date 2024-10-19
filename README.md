@@ -1,7 +1,6 @@
 # Nito optimized stratum pool.
 
-
-nito.conf [ Nito QT / Nitod ]
+1. Edit nito.conf OR https://nito.org/network/easynode/
 ```bash
 maxconnections=300
 listen=1
@@ -14,29 +13,30 @@ zmqpubhashblock=tcp://127.0.0.1:28825
 ```
 
 
-Apt-Get
+2. Apt-Get
 ```bash
 sudo apt-get update && sudo apt-get install -y autoconf automake libtool pkg-config python3 python3-pip build-essential libssl-dev git yasm libzmq3-dev libpq-dev libgsl-dev pkgconf git tmux nano
 ```
-Git Clone
+
+3. Git Clone
 ```bash
 git clone https://github.com/NitoNetwork/STRATUM-Pool.git stratum && cd stratum
 ```
-Build For Linux
+4. Build
 ```bash
 chmod +x autogen.sh && ./autogen.sh && ./configure && make
 ```
-Stratum Pool Config [ Change IP: serverurl ]
+5. Stratum Pool Config [ Change IP: serverurl ]
 ```bash
 nano nitopool.conf
 ```
 
-Firewall
+6. Firewall
 ```bash
 sudo ufw allow 3333/tcp && sudo ufw reload && sudo ufw status
 ```
 
-Run [ Add -D For Daemon ]
+7. Run [ Add -D For Daemon ]
 ```bash
 ./src/nitopool -B
 ```
