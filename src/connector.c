@@ -1597,7 +1597,7 @@ void *connector(void *arg)
 			}
 			port = atoi(newport);
 			/* All high port servers are treated as highdiff ports */
-			if (port > 4000) {
+			if (port > 30000) {
 				LOGNOTICE("Highdiff server %s", serverurl);
 				ckp->server_highdiff[i] = true;
 			}
