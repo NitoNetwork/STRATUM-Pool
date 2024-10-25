@@ -1593,8 +1593,8 @@ int main(int argc, char **argv)
 	ckp.initial_args[ckp.args] = NULL;
 
 	appname = basename(argv[0]);
-	if (!strcmp(appname, "ckproxy"))
-		ckp.proxy = true;
+	if (!strcmp(appname, "nitopool"))
+		ckp.nitosolo = true;
 
 	while ((c = getopt_long(argc, argv, "Bc:Dd:g:HhkLl:Nn:PpqRS:s:tu", long_options, &i)) != -1) {
 		switch (c) {
