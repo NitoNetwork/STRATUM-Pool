@@ -1,6 +1,6 @@
 # Nito optimized stratum pool.
 
-1. Edit nito.conf OR https://nito.org/network/easynode/
+1. Edit nito.conf OR https://nito.org/tools/easynode/
 ```bash
 maxconnections=300
 listen=1
