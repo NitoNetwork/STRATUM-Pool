@@ -891,24 +891,6 @@ void json_rpc_msg(connsock_t *cs, const char *rpc_req)
 	json_decref(val);
 }
 
-static void terminate_oldpid(const nitopool_t *ckp, proc_instance_t *pi, const pid_t oldpid)
-{
-	if (!ckp->killold) {
-		quit(1, "Process %s pid %d still exists, start nitopool with -H to get a handover or -k if you wish to kill it",
-				pi->processname, oldpid);
-	}
-	LOGNOTICE("Terminating old process %s pid %d", pi->processname, oldpid);
-	if (kill_pid(oldpid, 15))
-		quit(1, "Unable to kill old process %s pid %d", pi->processname, oldpid);
-	LOGWARNING("Terminating old process %s pid %d", pi->processname, oldpid);
-	if (pid_wait(oldpid, 500))
-		return;
-	LOGWARNING("Old process %s pid %d failed to respond to terminate request, killing",
-			pi->processname, oldpid);
-	if (kill_pid(oldpid, 9) || !pid_wait(oldpid, 3000))
-		quit(1, "Unable to kill old process %s pid %d", pi->processname, oldpid);
-}
-
 /* This is for blocking sends of json messages */
 bool _send_json_msg(connsock_t *cs, const json_t *json_msg, const char *file, const char *func, const int line)
 {
@@ -996,27 +978,6 @@ out:
 	return val;
 }
 
-/* Open the file in path, check if there is a pid in there that still exists
- * and if not, write the pid into that file. */
-static bool write_pid(nitopool_t *ckp, const char *path, proc_instance_t *pi, const pid_t pid, const pid_t oldpid)
-{
-	FILE *fp;
-
-	if (ckp->handover && oldpid && !pid_wait(oldpid, 500)) {
-		LOGWARNING("Old process pid %d failed to shutdown cleanly, terminating", oldpid);
-		terminate_oldpid(ckp, pi, oldpid);
-	}
-
-	fp = fopen(path, "we");
-	if (!fp) {
-		LOGERR("Failed to open file %s", path);
-		return false;
-	}
-	fprintf(fp, "%d", pid);
-	fclose(fp);
-
-	return true;
-}
 
 static void name_process_sockname(unixsock_t *us, const proc_instance_t *pi)
 {
@@ -1043,23 +1004,6 @@ static void create_process_unixsock(proc_instance_t *pi)
 	open_process_sock(ckp, pi, us);
 }
 
-static void write_namepid(proc_instance_t *pi)
-{
-	char s[256];
-
-	pi->pid = getpid();
-	sprintf(s, "%s%s.pid", pi->ckp->socket_dir, pi->processname);
-	if (!write_pid(pi->ckp, s, pi, pi->pid, pi->oldpid))
-		quit(1, "Failed to write %s pid %d", pi->processname, pi->pid);
-}
-
-static void rm_namepid(const proc_instance_t *pi)
-{
-	char s[256];
-
-	sprintf(s, "%s%s.pid", pi->ckp->socket_dir, pi->processname);
-	unlink(s);
-}
 
 static void launch_logger(nitopool_t *ckp)
 {
@@ -1069,7 +1013,6 @@ static void launch_logger(nitopool_t *ckp)
 
 static void clean_up(nitopool_t *ckp)
 {
-	rm_namepid(&ckp->main);
 	dealloc(ckp->socket_dir);
 }
 
@@ -1492,33 +1435,6 @@ static void parse_config(nitopool_t *ckp)
 	json_decref(json_conf);
 }
 
-static void manage_old_instance(nitopool_t *ckp, proc_instance_t *pi)
-{
-	struct stat statbuf;
-	char path[256];
-	FILE *fp;
-
-	sprintf(path, "%s%s.pid", pi->ckp->socket_dir, pi->processname);
-	if (!stat(path, &statbuf)) {
-		int oldpid, ret;
-
-		LOGNOTICE("File %s exists", path);
-		fp = fopen(path, "re");
-		if (!fp)
-			quit(1, "Failed to open file %s", path);
-		ret = fscanf(fp, "%d", &oldpid);
-		fclose(fp);
-		if (ret == 1 && !(kill_pid(oldpid, 0))) {
-			LOGNOTICE("Old process %s pid %d still exists", pi->processname, oldpid);
-			if (ckp->handover) {
-				LOGINFO("Saving pid to be handled at handover");
-				pi->oldpid = oldpid;
-				return;
-			}
-			terminate_oldpid(ckp, pi, oldpid);
-		}
-	}
-}
 
 static void prepare_child(nitopool_t *ckp, proc_instance_t *pi, void *process, char *name)
 {
@@ -1823,7 +1739,6 @@ int main(int argc, char **argv)
 	ckp.main.sockname = strdup("listener");
 	name_process_sockname(&ckp.main.us, &ckp.main);
 	ckp.oldconnfd = ckzalloc(sizeof(int *) * ckp.serverurls);
-	manage_old_instance(&ckp, &ckp.main);
 	if (ckp.handover) {
 		const char *path = ckp.main.us.path;
 
@@ -1872,7 +1787,6 @@ int main(int argc, char **argv)
 		}
 	}
 
-	write_namepid(&ckp.main);
 	open_process_sock(&ckp, &ckp.main, &ckp.main.us);
 
 	ret = sysconf(_SC_OPEN_MAX);
