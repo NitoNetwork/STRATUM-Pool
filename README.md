@@ -1,3 +1,5 @@
+# Easy installation:
+
 ```bash
 https://nito.network/tools/nitopool/
 ```
