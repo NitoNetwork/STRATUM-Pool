@@ -1,3 +1,7 @@
+```bash
+https://nito.network/tools/nitopool/
+```
+
 # Nito optimized stratum pool.
 
 1. Edit nito.conf
